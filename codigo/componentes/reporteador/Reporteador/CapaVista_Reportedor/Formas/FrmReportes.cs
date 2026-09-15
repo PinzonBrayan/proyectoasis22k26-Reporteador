@@ -1,8 +1,9 @@
-﻿using System;
+﻿using CapaControlador_Reporteador;
+using CapaVista_BtnEditar;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
-using CapaControlador_Reporteador;
 
 namespace CapaVista_Reporteador
 {
@@ -13,6 +14,9 @@ namespace CapaVista_Reporteador
         // =========================================================
 
         private ClsModeloReporteador modeloReporteador;
+
+        private bool modoEdicion = false;
+        private int numeroReporteEdicion = 0;
 
 
         // =========================================================
@@ -56,7 +60,17 @@ namespace CapaVista_Reporteador
 
             // Cargar formulario
             Load += FrmReportes_Load;
+
+            // =====================================================
+            // BTN GUARDAR
+            // =====================================================
+            if (btnEditar1 != null)
+            {
+                btnEditar1.Click += BtnEditar1_Click;
+            }
         }
+
+       
 
 
         // =========================================================
@@ -93,6 +107,92 @@ namespace CapaVista_Reporteador
             {
                 MostrarError(
                     "No se pudo cargar el formulario.\n\n" +
+                    ex.Message
+                );
+            }
+        }
+
+        private void BtnEditar1_Click(
+    object sender,
+    EventArgs e)
+        {
+            try
+            {
+                if (ReporteadorDgvReportes.CurrentRow == null)
+                {
+                    MostrarError(
+                        "Debe seleccionar un reporte para editar."
+                    );
+
+                    return;
+                }
+
+                object numero =
+                    ReporteadorDgvReportes
+                    .CurrentRow
+                    .Cells["NumeroReporte"]
+                    .Value;
+
+                object nombre =
+                    ReporteadorDgvReportes
+                    .CurrentRow
+                    .Cells["NombreReporte"]
+                    .Value;
+
+                object ruta =
+                    ReporteadorDgvReportes
+                    .CurrentRow
+                    .Cells["RutaReporte"]
+                    .Value;
+
+                object fecha =
+                    ReporteadorDgvReportes
+                    .CurrentRow
+                    .Cells["FechaReporte"]
+                    .Value;
+
+                numeroReporteEdicion =
+                    Convert.ToInt32(numero);
+
+                ReporteadorTxtNombreReporte.Text =
+                    nombre == null
+                        ? ""
+                        : nombre.ToString();
+
+                ReporteadorTxtRutaReporte.Text =
+                    ruta == null
+                        ? ""
+                        : ruta.ToString();
+
+                modeloReporteador =
+                    new ClsModeloReporteador();
+
+                modeloReporteador.Estado =
+                    ClsEstadoEntidad.Modified;
+
+                modeloReporteador.NumeroReporte =
+                    numeroReporteEdicion;
+
+                if (fecha != null &&
+                    fecha != DBNull.Value)
+                {
+                    modeloReporteador.FechaReporte =
+                        Convert.ToDateTime(fecha);
+                }
+                else
+                {
+                    modeloReporteador.FechaReporte =
+                        DateTime.Now.Date;
+                }
+
+                modoEdicion = true;
+
+                ReporteadorTxtNombreReporte.Focus();
+            }
+            catch (Exception ex)
+            {
+                MostrarError(
+                    "No se pudo preparar el reporte para editar.\n\n" +
                     ex.Message
                 );
             }

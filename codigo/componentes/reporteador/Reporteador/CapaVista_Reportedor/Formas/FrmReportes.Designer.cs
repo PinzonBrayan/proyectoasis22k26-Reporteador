@@ -50,6 +50,7 @@
             this.ReporteadorPnlFiltroBuscarReporte = new System.Windows.Forms.Panel();
             this.btnRuta1 = new CapaVista_BtnRuta.BtnRuta();
             this.btnGuardar1 = new CapaVista_BtnGuardar.BtnGuardar();
+            this.btnEditar1 = new CapaVista_BtnEditar.BtnEditar();
             ((System.ComponentModel.ISupportInitialize)(this.ReporteadorPbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReporteadorPbFooter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReporteadorPbBanner)).BeginInit();
@@ -253,6 +254,19 @@
             this.btnGuardar1.Size = new System.Drawing.Size(56, 56);
             this.btnGuardar1.TabIndex = 15;
             // 
+            // btnEditar1
+            // 
+            // 
+             this.btnEditar1.Location =
+              new System.Drawing.Point(217, 227);
+
+             this.btnEditar1.Name =
+                "btnEditar1";
+
+             this.btnEditar1.Size =
+                new System.Drawing.Size(56, 56);
+
+             this.btnEditar1.TabIndex = 17;
             // FrmReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -275,6 +289,7 @@
             this.Controls.Add(this.ReporteadorPbFooter);
             this.Controls.Add(this.ReporteadorPbBanner);
             this.Controls.Add(this.ReporteadorPnlFiltroBuscarReporte);
+            this.Controls.Add(this.btnEditar1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(890, 700);
@@ -309,5 +324,6 @@
         private System.Windows.Forms.Panel ReporteadorPnlFiltroBuscarReporte;
         private CapaVista_BtnRuta.BtnRuta btnRuta1;
         private CapaVista_BtnGuardar.BtnGuardar btnGuardar1;
+        private CapaVista_BtnEditar.BtnEditar btnEditar1;
     }
 }
