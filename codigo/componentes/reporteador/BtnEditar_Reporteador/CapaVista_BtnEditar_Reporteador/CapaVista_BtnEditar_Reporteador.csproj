@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BF2AE373-E969-4939-AA73-FD4535DC5C9C}</ProjectGuid>
+    <ProjectGuid>{76789F1F-22D8-4668-85B1-3260277E2771}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CapaModelo_Reporteador</RootNamespace>
-    <AssemblyName>CapaModelo_Reporteador</AssemblyName>
+    <RootNamespace>CapaVista_BtnEditar_Reporteador</RootNamespace>
+    <AssemblyName>CapaVista_BtnEditar_Reporteador</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,8 +31,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CapaControlador_BtnEditar_Reporteador">
+      <HintPath>..\CapaControlador_BtnEditar_Reporteador\bin\Debug\CapaControlador_BtnEditar_Reporteador.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,14 +46,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contratos\ClsIRepositorioGenerico.cs" />
-    <Compile Include="Contratos\ClsIRepositorioReporteador.cs" />
-    <Compile Include="Entidades\ClsReporteador.cs" />
+    <Compile Include="BtnEditarReporteador.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BtnEditarReporteador.Designer.cs">
+      <DependentUpon>BtnEditarReporteador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositorios\ClsRepositorio.cs" />
-    <Compile Include="Repositorios\ClsRepositorioMaestro.cs" />
-    <Compile Include="Repositorios\ClsRepositorioReporteador.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\btn_modificar.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
