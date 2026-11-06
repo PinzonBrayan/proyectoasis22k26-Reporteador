@@ -34,7 +34,7 @@ using CapaVista_Traslados_Logistica.Formularios;
 using CapaVista_MuestreoAuditoria_Logistica;
 
 // Formularios del módulo de Cierre de Inventario.
-using CapaVista_CierreInventario_Logistica.Formularios;
+
 
 // Formularios del módulo de Enlace con otros módulos.
 
@@ -157,8 +157,7 @@ namespace CapaVista_Logistica
         private void LogisticaBtnCierredeInventario_Click(
             object sender, EventArgs e)
         {
-            LogisticaMetAbrirFormulario(
-                new FrmCierreInventario());
+            
         }
 
         // ============================================
