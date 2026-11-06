@@ -37,7 +37,7 @@ using CapaVista_MuestreoAuditoria_Logistica;
 using CapaVista_CierreInventario_Logistica.Formularios;
 
 // Formularios del módulo de Enlace con otros módulos.
-using CapaVista_Enlace_Logistica.Formas;
+
 
 namespace CapaVista_Logistica
 {
@@ -256,8 +256,7 @@ namespace CapaVista_Logistica
 
         private void LogisticaBtnEnlace_Click(object sender, EventArgs e)
         {
-            LogisticaMetAbrirFormulario(
-                new Frm_Solicitud_Pago());
+            
         }
     }
 }
