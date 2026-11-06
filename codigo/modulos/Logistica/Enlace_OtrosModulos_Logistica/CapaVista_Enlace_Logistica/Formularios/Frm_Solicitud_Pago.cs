@@ -155,6 +155,56 @@ namespace CapaVista_Enlace_Logistica.Formas
             }
         }
 
+        private void LimpiarFormulario()
+        {
+            // 1. Deseleccionar el servicio sin borrar su catálogo.
+            cboServicioTransporte.SelectedIndex = -1;
+
+            // 2. Limpiar información del servicio.
+            txtNumeroServicio.Clear();
+            txtNumeroGuia.Clear();
+            txtFechaServicio.Clear();
+
+            // 3. Limpiar información del transportista.
+            txtNombreTransportista.Clear();
+            txtNitTransportista.Clear();
+            txtDireccionTransportista.Clear();
+
+            // 4. Limpiar información bancaria.
+            cboBancoBeneficiario.SelectedIndex = -1;
+            cboTipoCuenta.SelectedIndex = -1;
+            txtNumeroCuenta.Clear();
+
+            // 5. Restablecer la moneda.
+            rdbQuetzales.Checked = true;
+            rdbDolares.Checked = false;
+
+            // 6. Limpiar el detalle del servicio.
+            // Compatible con DataGridView enlazado o manual.
+            dgvDetalleServicio.DataSource = null;
+            dgvDetalleServicio.Rows.Clear();
+
+            // 7. Limpiar información del pago.
+            txtMontoPagar.Clear();
+            txtConceptoPago.Clear();
+            lblMonedaMonto.Text = "GTQ";
+
+            // 8. Restablecer el resumen de la solicitud.
+            lblTextoResumenNumeroServicio.Text = "-";
+            lblTextoResumenFechaServicio.Text = "-";
+            lblTextoResumenTransportista.Text = "-";
+            lblTextoResumenNit.Text = "-";
+            lblTextoResumenBanco.Text = "-";
+            lblTextoResumenTipoCuenta.Text = "-";
+            lblTextoResumenNumeroCuenta.Text = "-";
+            lblTextoResumenMoneda.Text = "GTQ";
+            lblTextoResumenMonto.Text = "-";
+            lblTextoResumenConcepto.Text = "-";
+
+            // 9. Colocar el cursor en el servicio.
+            cboServicioTransporte.Focus();
+        }
+
 
 
         private void ActualizarResumenSolicitud()
@@ -300,6 +350,11 @@ namespace CapaVista_Enlace_Logistica.Formas
         private void lblResumenConcepto_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarFormulario();
         }
     }
 }
