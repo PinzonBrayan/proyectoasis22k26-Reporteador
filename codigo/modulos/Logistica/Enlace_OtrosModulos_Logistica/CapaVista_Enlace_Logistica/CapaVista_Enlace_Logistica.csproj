@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CapaModelo_Enlace_Logistica, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CapaModelo_Enlace_Logistica\bin\Debug\CapaModelo_Enlace_Logistica.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -76,6 +80,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\btn_ayuda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaContralador_Enlace_Logistica\CapaContralador_Enlace_Logistica.csproj">
+      <Project>{d838776c-6639-41ec-82f2-4ffbbc121e6b}</Project>
+      <Name>CapaContralador_Enlace_Logistica</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

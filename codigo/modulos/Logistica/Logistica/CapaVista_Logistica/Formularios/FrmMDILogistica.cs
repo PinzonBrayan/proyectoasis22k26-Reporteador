@@ -34,7 +34,10 @@ using CapaVista_Traslados_Logistica.Formularios;
 using CapaVista_MuestreoAuditoria_Logistica;
 
 // Formularios del módulo de Cierre de Inventario.
-using CapaVista_CierreInventario.Forms;
+using CapaVista_CierreInventario_Logistica.Formularios;
+
+// Formularios del módulo de Enlace con otros módulos.
+using CapaVista_Enlace_Logistica.Formas;
 
 namespace CapaVista_Logistica
 {
@@ -245,6 +248,16 @@ namespace CapaVista_Logistica
                 LogisticaLblRolUsuario.Location =
                     new Point(752, 9);
             }
+        }
+
+        // ============================================
+        // Enlace Otros Módulos
+        // ============================================
+
+        private void LogisticaBtnEnlace_Click(object sender, EventArgs e)
+        {
+            LogisticaMetAbrirFormulario(
+                new Frm_Solicitud_Pago());
         }
     }
 }
